@@ -5,30 +5,30 @@
     </head>
     <body>
         <center>
-            <form action="#" class="form-input">
-                <p class="heading">SUPERVISOR REGISTER</p>
+            <form method="post" action="connect.php" class="form-input">
+                <p class="heading"><u>SUPERVISOR REGISTER</u></p>
                 <div class="supervisor-input">
                     <label for="supervisor-name">Supervisor Name</label>
-                    <input type="text" placeholder="supervisor-name" id="supervisor-name" required>
+                    <input type="text" placeholder="supervisor-name" id="supervisor-name" name="supervisor-name" required>
                 </div>
                 <div class="email-input">
                     <label for="email">Email</label>
-                    <input type="text" placeholder="email" id="email" required>
+                    <input type="text" placeholder="email" id="email" name="email" required>
                 </div>
                 <div class="telephone-input">
                     <label for="telephone">Telephone Contact</label>
-                    <input type="text" placeholder="Telehone Contact"  id="telephone" >
+                    <input type="text" placeholder="Telehone Contact"  id="telephone" name="telephone">
                 </div>
                 <div class="password-input">
                     <label for="password">Password</label>
-                    <input type="text" placeholder="Enter Password" id="password" required>
+                    <input type="password" placeholder="Enter Password" id="password" name="password" required>
                 </div>
                 <div class="confirm-input">
                     <label for="confirm">Confirm Password</label>
-                    <input type="text" placeholder="Confirm password" id="confirm" required>
+                    <input type="password" placeholder="Confirm password" id="confirm"  name="confirm" required>
                 </div>
                 <div class="btn">
-                    <button type="submit" class="btnregister">REGISTER</button>
+                    <button type="submit" class="btnregister" onclick="validateForm()">REGISTER</button>
                     <button type="reset" class="btncancel" >CANCEL</button>
                 </div>
                 <div class="login">
@@ -38,6 +38,16 @@
                 </div>
             </form>
         </center>
+        <script>
+            function validateForm() {
+                let password = document.forms["form-input"]["password"].value;
+                let confirm = document.forms["form-input"]["confirm"].value;
+                if ( password == confirm) {
+                    alert("Name must be filled out");
+                    return false;
+            }
+            }
+        </script>
     </body>
     <style>
         *{
@@ -164,13 +174,5 @@
         }
         
     </style>
-    <script>
-        function validateForm() {
-            let x = document.forms["form-input"]["supervisor-name"].value;
-            if (x == "") {
-                alert("Name must be filled out");
-                return false;
-        }
-        }
-    </script>
+    
 </html>
